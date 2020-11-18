@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="UnitTestTask1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestTask3.cs" />
     <Compile Include="UnitTestTask2.cs" />
     <Compile Include="Helper.cs" />
   </ItemGroup>

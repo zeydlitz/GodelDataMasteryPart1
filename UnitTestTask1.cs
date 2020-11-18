@@ -17,7 +17,7 @@ namespace TestQueryProject
             this.resultsDirectory = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName, "TestResults", "Task1");
             this.tasksDirectory = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName, "Tasks", "Task1");
 
-            this.connectionString = "Data Source=localhost;Initial Catalog=AdventureWorks2019;User=sa;Pwd=Password.";           
+            this.connectionString = "Data Source=localhost;Initial Catalog=AdventureWorks2019;Integrated Security=True;";           
         }
 
         [TestMethod]

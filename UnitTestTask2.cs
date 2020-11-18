@@ -17,7 +17,7 @@ namespace TestQueryProject
             this.resultsDirectory = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName, "TestResults", "Task2");
             this.tasksDirectory = Path.Combine(Directory.GetParent(Environment.CurrentDirectory).Parent.FullName, "Tasks", "Task2");
 
-            this.connectionString = "Data Source=localhost;Initial Catalog=AdventureWorks2019;User=sa;Pwd=Password.";
+            this.connectionString = "Data Source=localhost;Initial Catalog=AdventureWorks2019;Integrated Security=True;";
         }
 
         [TestMethod]
@@ -146,21 +146,6 @@ namespace TestQueryProject
             // Arrange         
             var expectedFilePath = Path.Combine(resultsDirectory, "query09.bin");
             var actualFilePath = Path.Combine(tasksDirectory, "query09.sql");
-
-            // Act
-            var actual = Helper.ExecuteSqlFile(connectionString, actualFilePath);
-            var expected = Helper.ConvertBinToDataTable(expectedFilePath);
-
-            // Assert
-            Assert.IsTrue(Helper.AreTablesTheSame(actual, expected));
-        }
-
-        [TestMethod]
-        public void Query10TestMethod()
-        {
-            // Arrange         
-            var expectedFilePath = Path.Combine(resultsDirectory, "query10.bin");
-            var actualFilePath = Path.Combine(tasksDirectory, "query10.sql");
 
             // Act
             var actual = Helper.ExecuteSqlFile(connectionString, actualFilePath);

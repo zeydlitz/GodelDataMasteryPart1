@@ -1,7 +1,9 @@
---Query 10
-SELECT TOP 10
-       [SalesOrderID],
+--Task 10
+SELECT [SalesOrderID],
        [OrderDate],
-       '' AS [Day Of Week Name]
+       DATENAME([dw], [OrderDate]) AS [Day Of Week Name]
 FROM [Sales].[SalesOrderHeader]
+WHERE DATEPART([dw], [OrderDate]) IN (1, 7)
+AND YEAR([OrderDate]) = 2011
+AND MONTH([OrderDate]) = 8
 ;

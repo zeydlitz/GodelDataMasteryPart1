@@ -1,8 +1,8 @@
---Query 3
-SELECT TOP 10
-       [BusinessEntityID],
+--Task 3
+SELECT [BusinessEntityID],
        [FirstName],
        [MiddleName],
        [LastName]
 FROM [Person].[Person]
+WHERE LEN([LastName])-LEN(REPLACE([LastName], 't', '')) > 2
 ;

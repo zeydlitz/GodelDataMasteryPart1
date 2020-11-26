@@ -4,5 +4,5 @@ SELECT BusinessEntityID,
        MiddleName,
        LastName
 FROM Person.Person
-WHERE LEN(LastName) - LEN(REPLACE(LastName,'t',''))>=3
+WHERE LEN(LastName) - LEN(REPLACE(LastName,'t','')) >= 3
 ;

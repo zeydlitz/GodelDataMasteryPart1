@@ -4,5 +4,8 @@ SELECT SalesOrderID,
        CustomerID,
        SalesPersonID
 FROM Sales.SalesOrderHeader
-WHERE MONTH(OrderDate)=5 and YEAR(OrderDate)=2011;
+WHERE 
+    MONTH(OrderDate) = 5
+    AND 
+    YEAR(OrderDate) = 2011;
 ;

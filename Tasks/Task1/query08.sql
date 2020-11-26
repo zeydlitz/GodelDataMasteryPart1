@@ -1,12 +1,12 @@
 --Query 8
 SELECT BusinessEntityID,
        Name,
-	   PurchasingWebServiceURL
+       PurchasingWebServiceURL
 FROM Purchasing.Vendor
-WHERE YEAR(ModifiedDate)=2011
-ORDER BY CASE 
-		when PurchasingWebServiceURL is null then 1 
-		else 0 
-		end,
-		PurchasingWebServiceURL
+WHERE YEAR(ModifiedDate) = 2011
+ORDER BY CASE
+             WHEN PurchasingWebServiceURL IS NULL THEN 1
+             ELSE 0
+         END,
+         PurchasingWebServiceURL
 ;

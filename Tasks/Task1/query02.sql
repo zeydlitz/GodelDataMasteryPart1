@@ -3,5 +3,10 @@ SELECT SalesOrderID,
        OrderDate,
        TotalDue
 FROM Sales.SalesOrderHeader
-WHERE EOMONTH(OrderDate)=OrderDate AND TotalDue<1000 AND YEAR(OrderDate)=2011
+WHERE 
+    EOMONTH(OrderDate) = OrderDate
+    AND 
+    TotalDue < 1000
+    AND 
+    YEAR(OrderDate) = 2011
 ;

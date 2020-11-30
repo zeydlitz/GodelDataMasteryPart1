@@ -12,6 +12,6 @@ FROM Person.PersonPhone
 WHERE 
     YEAR(ModifiedDate) = 2011
     AND
-    SUBSTRING(PhoneNumber, LEN(PhoneNumber) - 1, 2) = '77'
+    RIGHT(PhoneNumber,2) = '77'
 ORDER BY BusinessEntityID
 ;

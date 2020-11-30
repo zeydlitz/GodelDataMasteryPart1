@@ -6,9 +6,9 @@ SELECT emp.BusinessEntityID,
            ELSE phone.PhoneNumber
            END as PhoneNumber
 From Person.Person AS person
-         JOIN HumanResources.Employee AS emp
-            ON person.BusinessEntityID = emp.BusinessEntityID
-         JOIN Person.PersonPhone phone
-            ON emp.BusinessEntityID = phone.BusinessEntityID
+INNER JOIN HumanResources.Employee AS emp
+        ON person.BusinessEntityID = emp.BusinessEntityID
+INNER JOIN Person.PersonPhone phone
+        ON emp.BusinessEntityID = phone.BusinessEntityID
 ORDER BY emp.BusinessEntityID
 ;

@@ -5,9 +5,9 @@ SELECT DISTINCT
        Sales.SalesOrderHeader.OrderDate,
        Sales.SalesOrderHeader.OnlineOrderFlag
 FROM Sales.SalesOrderHeader
-    LEFT JOIN Sales.SalesOrderDetail
+LEFT JOIN Sales.SalesOrderDetail
        ON Sales.SalesOrderHeader.SalesOrderID = Sales.SalesOrderDetail.SalesOrderID
-    LEFT JOIN Production.Product as product
+LEFT JOIN Production.Product as product
        ON Sales.SalesOrderDetail.ProductID = product.ProductID
 WHERE Sales.SalesOrderHeader.OnlineOrderFlag = 1
   AND Sales.SalesOrderHeader.OrderDate = CONVERT(DATETIME, '20130101', 101)

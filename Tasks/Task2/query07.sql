@@ -9,10 +9,10 @@ SELECT DISTINCT customer.CustomerId,
                     ELSE 'No'
                 END  'Has Orders in 2013'
 FROM Sales.Customer AS customer
-         LEFT JOIN Sales.SalesOrderHeader
-            ON customer.CustomerID = Sales.SalesOrderHeader.CustomerID AND YEAR(Sales.SalesOrderHeader.OrderDate) = 2013
-         LEFT JOIN  Person.Person as person
-            ON customer.PersonID = person.BusinessEntityID
+LEFT JOIN Sales.SalesOrderHeader
+       ON customer.CustomerID = Sales.SalesOrderHeader.CustomerID AND YEAR(Sales.SalesOrderHeader.OrderDate) = 2013
+LEFT JOIN  Person.Person as person
+       ON customer.PersonID = person.BusinessEntityID
 WHERE person.FirstName = 'Zoe'
 ORDER BY 1
 ;

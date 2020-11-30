@@ -3,8 +3,8 @@ SELECT person.BusinessEntityID,
        person.LastName,
        person.FirstName
 FROM Person.Person AS person
-         LEFT OUTER JOIN Person.BusinessEntityAddress as bea
-            ON bea.BusinessEntityID = person.BusinessEntityID
+LEFT JOIN Person.BusinessEntityAddress as bea
+       ON bea.BusinessEntityID = person.BusinessEntityID
 WHERE bea.BusinessEntityID IS NULL
       OR 
       bea.AddressTypeID <> 2

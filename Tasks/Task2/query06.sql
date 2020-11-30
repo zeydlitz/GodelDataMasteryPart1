@@ -1,4 +1,4 @@
---Query 6
+--Query  6
 SELECT DISTINCT
        Sales.SalesOrderHeader.CustomerID,
        product.Name as BikeName,

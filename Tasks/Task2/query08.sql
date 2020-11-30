@@ -1,4 +1,4 @@
---Query 8
+--Query  8
 SELECT customer.CustomerID,
        CONCAT(person.FirstName, ' ', person.MiddleName, ' ', person.LastName) AS CustomerFullName,
        product.Name AS ProductName

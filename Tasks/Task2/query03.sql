@@ -1,4 +1,4 @@
---Query 3
+--Query  3
 SELECT c.CustomerID,
        CASE
            WHEN s.SalesOrderID IS NULL THEN NULL

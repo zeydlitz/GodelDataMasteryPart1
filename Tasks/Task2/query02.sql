@@ -1,4 +1,4 @@
---Query 2
+--Query  2
 SELECT DISTINCT
        person.BusinessEntityID,
        person.FirstName,

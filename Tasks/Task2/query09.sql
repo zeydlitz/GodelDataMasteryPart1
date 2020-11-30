@@ -1,4 +1,4 @@
---Query 9
+--Query  9
 SELECT v.Name as VendorName,
        p.Name as ProductName
 FROM Purchasing.Vendor as v

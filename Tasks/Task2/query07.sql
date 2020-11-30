@@ -1,4 +1,4 @@
---Query 7
+--Query  7
 SELECT DISTINCT customer.CustomerId,
                 CASE 
                     WHEN person.MiddleName IS NULL THEN CONCAT(person.FirstName, ' ', person.LastName) 

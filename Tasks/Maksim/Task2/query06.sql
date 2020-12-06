@@ -1,21 +1,18 @@
 --Query  6
 SELECT DISTINCT
-       Sales.SalesOrderHeader.CustomerID,
+       SOH.CustomerID,
        product.Name as BikeName,
-       Sales.SalesOrderHeader.OrderDate,
-       Sales.SalesOrderHeader.OnlineOrderFlag
-FROM Sales.SalesOrderHeader
-LEFT JOIN Sales.SalesOrderDetail
-       ON Sales.SalesOrderHeader.SalesOrderID = Sales.SalesOrderDetail.SalesOrderID
+       SOH.OrderDate,
+       SOH.OnlineOrderFlag
+FROM Sales.SalesOrderHeader SOH
+LEFT JOIN Sales.SalesOrderDetail SOD
+       ON SOH.SalesOrderID = SOD.SalesOrderID
 LEFT JOIN Production.Product as product
-       ON Sales.SalesOrderDetail.ProductID = product.ProductID
-WHERE Sales.SalesOrderHeader.OnlineOrderFlag = 1
-  AND Sales.SalesOrderHeader.OrderDate = CONVERT(DATETIME, '20130101', 101)
-  AND EXISTS
-    (SELECT *
-     FROM Production.ProductSubcategory
-     WHERE Production.ProductSubcategory.ProductCategoryID = 1 
-     AND 
-     Production.ProductSubcategory.ProductSubcategoryID=product.ProductSubcategoryID)
+       ON SOD.ProductID = product.ProductID
+LEFT JOIN Production.ProductSubcategory PD
+       ON product.ProductSubcategoryID = PD.ProductSubcategoryID
+WHERE SOH.OnlineOrderFlag = 1
+  AND SOH.OrderDate = CONVERT(DATETIME, '20130101', 101)
+  AND PD.ProductCategoryID = 1
 ORDER BY 1
 ;

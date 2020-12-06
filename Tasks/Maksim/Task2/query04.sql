@@ -5,8 +5,10 @@ SELECT person.BusinessEntityID,
 FROM Person.Person AS person
 LEFT JOIN Person.BusinessEntityAddress as bea
        ON bea.BusinessEntityID = person.BusinessEntityID
+LEFT JOIN Person.AddressType AD
+        ON bea.AddressTypeID = AD.AddressTypeID
 WHERE bea.BusinessEntityID IS NULL
-      OR 
-      bea.AddressTypeID <> 2
+      OR
+      AD.Name != 'Home'
 ORDER BY person.BusinessEntityID
 ;

@@ -15,8 +15,6 @@ WHERE EXISTS
              FROM Sales.SalesOrderHeader SOH2
              WHERE SOH2.CustomerID = customer.CustomerID
                    AND
-                   YEAR(SOH2.OrderDate)>2011
-                   OR
-                   YEAR(SOH2.OrderDate)<2011)
+                   YEAR(SOH2.OrderDate) != 2011)
 ORDER BY customer.CustomerID
 ;

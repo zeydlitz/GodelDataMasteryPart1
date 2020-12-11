@@ -10,7 +10,6 @@ WHERE EXISTS
              FROM Sales.SalesOrderHeader SOH
              WHERE SOH.SalesPersonID = SP.BusinessEntityID
                    AND
-                   SOH.OrderDate >= CONVERT(DATETIME, '20110801', 101)
-                   AND
-                   SOH.SalesPersonID = SP.BusinessEntityID)
+                   SOH.OrderDate >= CONVERT(DATETIME, '20110801', 101))
 ;
+s

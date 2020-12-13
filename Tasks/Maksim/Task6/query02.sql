@@ -10,5 +10,5 @@ FROM (
     )  In_Ts
 PIVOT(
     SUM(qty) FOR custid IN(A, B, C, D)
-    )  P;
+    )  P
 ;

@@ -3,24 +3,24 @@ SELECT DISTINCT
     Customer.CustomerID,
     MONTH(SOH.OrderDate) OrderMonth,
     (
-    SELECT SUM(S.OrderQty)
-    FROM Sales.SalesOrderHeader SOH2 
-    JOIN Sales.SalesOrderDetail S
-        ON SOH2.SalesOrderID = S.SalesOrderID
-    WHERE 
-        SOH2.CustomerID = Customer.CustomerID
-        AND
-        MONTH(SOH.OrderDate) = Month(SOH2.OrderDate)
+        SELECT SUM(S.OrderQty)
+        FROM Sales.SalesOrderHeader SOH2 
+        JOIN Sales.SalesOrderDetail S
+            ON SOH2.SalesOrderID = S.SalesOrderID
+        WHERE 
+            SOH2.CustomerID = Customer.CustomerID
+            AND
+            MONTH(SOH.OrderDate) = Month(SOH2.OrderDate)
     ),
     (
-    SELECT SUM(S.OrderQty)
-    FROM Sales.SalesOrderHeader SOH2 
-    JOIN Sales.SalesOrderDetail S 
-        ON SOH2.SalesOrderID = S.SalesOrderID
-    WHERE 
-        SOH2.CustomerID=Customer.CustomerID
-        AND
-        MONTH(SOH.OrderDate) >= Month(SOH2.OrderDate)
+        SELECT SUM(S.OrderQty)
+        FROM Sales.SalesOrderHeader SOH2 
+        JOIN Sales.SalesOrderDetail S 
+            ON SOH2.SalesOrderID = S.SalesOrderID
+        WHERE 
+            SOH2.CustomerID=Customer.CustomerID
+            AND
+            MONTH(SOH.OrderDate) >= Month(SOH2.OrderDate)
     )
 FROM Sales.Customer
 JOIN Sales.SalesOrderHeader SOH 

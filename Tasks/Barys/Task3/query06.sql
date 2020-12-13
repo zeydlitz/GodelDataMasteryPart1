@@ -8,9 +8,7 @@ WHERE
     AND
     NOT EXISTS
     (
-    SELECT
-        SOH2.CustomerID,
-        SOH2.OrderDate
+    SELECT 1
     FROM Sales.SalesOrderHeader SOH2
     WHERE 
         YEAR(SOH2.OrderDate) != 2011

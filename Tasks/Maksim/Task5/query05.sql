@@ -10,7 +10,7 @@ INNER JOIN HumanResources.Department D
 INNER JOIN Person.Person person
         ON emp.BusinessEntityID = Person.BusinessEntityID
 WHERE D.Name='Sales'
-INTERSECT
+EXCEPT
 SELECT emp.BusinessEntityID,
        person.LastName,
        person.FirstName
@@ -21,5 +21,5 @@ INNER JOIN Sales.SalesPerson SP
         ON emp.BusinessEntityID = SP.BusinessEntityID
 INNER JOIN Sales.SalesOrderHeader SOH
         ON SP.BusinessEntityID = SOH.SalesPersonID
-WHERE YEAR(SOH.OrderDate) != 2012
+WHERE YEAR(SOH.OrderDate) = 2012
 ;

@@ -4,5 +4,5 @@ SELECT
     OrderYear,
     OrderQty,
     SUM(OrderQty) OVER (PARTITION BY CustomerID ORDER BY OrderYear) AS runqty
-FROM Sales.vCustOrders;
+FROM Sales.vCustOrders
 ;

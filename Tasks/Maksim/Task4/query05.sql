@@ -3,9 +3,12 @@ WITH tab
 AS (
     SELECT DISTINCT
            YEAR(OrderDate) Year,
-           COUNT(CustomerID) Count
+           CustomerID
     FROM Sales.SalesOrderHeader
-    GROUP BY YEAR(OrderDate))
-SELECT *
+    )
+SELECT tab.Year,
+       COUNT(tab.CustomerID) count
 FROM tab
+GROUP BY tab.Year
+ORDER BY tab.Year
 ;

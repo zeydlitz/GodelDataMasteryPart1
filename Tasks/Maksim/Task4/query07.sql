@@ -3,18 +3,14 @@ WITH tab
 AS (
     SELECT DISTINCT
            YEAR(OrderDate) Year,
-           COUNT(CustomerID) Count
+           CustomerID
     FROM Sales.SalesOrderHeader
-    GROUP BY YEAR(OrderDate))
-SELECT tab.year,
-       tab.count CurNumCust,
-       CASE
-           WHEN LAG(tab.count) OVER (ORDER BY tab.year) IS NULL THEN NULL
-           ELSE LAG(tab.count) OVER (ORDER BY tab.year)
-       END PrvNumCusts,
-       CASE
-           WHEN LAG(tab.count) OVER (ORDER BY tab.year) IS NULL THEN NULL
-           ELSE tab.count - LAG(tab.count) OVER (ORDER BY tab.year)
-       END growth
+    )
+SELECT tab.Year,
+       COUNT(tab.CustomerID) count,
+       ISNULL(LAG(COUNT(tab.CustomerID)) OVER (ORDER BY tab.Year),0) PrvNumCusts,
+       ISNULL(COUNT(tab.CustomerID) - LAG(COUNT(tab.CustomerID)) OVER (ORDER BY tab.year),0) growth
 FROM tab
+GROUP BY tab.Year
+ORDER BY tab.Year
 ;

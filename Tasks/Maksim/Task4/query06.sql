@@ -3,10 +3,13 @@ WITH tab
 AS (
     SELECT DISTINCT
            YEAR(OrderDate) Year,
-           COUNT(CustomerID) Count
+           CustomerID
     FROM Sales.SalesOrderHeader
-    GROUP BY YEAR(OrderDate))
-SELECT *
+    )
+SELECT tab.Year,
+       COUNT(tab.CustomerID) count
 FROM tab
-WHERE tab.count > 10000
+GROUP BY tab.Year
+HAVING  COUNT(tab.CustomerID) > 10000
+ORDER BY tab.Year
 ;

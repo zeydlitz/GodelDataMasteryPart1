@@ -92,6 +92,11 @@
     <Content Include="Tasks\Barys\Task2\query07.sql" />
     <Content Include="Tasks\Barys\Task2\query08.sql" />
     <Content Include="Tasks\Barys\Task2\query09.sql" />
+    <Content Include="Tasks\Maksim\EXIT_TASK\query01.sql" />
+    <Content Include="Tasks\Maksim\EXIT_TASK\query02.sql" />
+    <Content Include="Tasks\Maksim\EXIT_TASK\query03.sql" />
+    <Content Include="Tasks\Maksim\EXIT_TASK\query04.sql" />
+    <Content Include="Tasks\Maksim\EXIT_TASK\query05.sql" />
     <Content Include="Tasks\Maksim\Task7\query01.sql" />
     <Content Include="Tasks\Maksim\Task7\query02.sql" />
     <Content Include="Tasks\Maksim\Task7\query03.sql" />

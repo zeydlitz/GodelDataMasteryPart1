@@ -73,24 +73,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Tasks\Barys\Task3_1\query01.sql" />
-    <Content Include="Tasks\Barys\Task3_1\query02.sql" />
-    <Content Include="Tasks\Barys\Task3_1\query03.sql" />
-    <Content Include="Tasks\Barys\Task3_1\query04.sql" />
-    <Content Include="Tasks\Barys\Task3_1\query05.sql" />
-    <Content Include="Tasks\Barys\Task3_1\query06.sql" />
-    <Content Include="Tasks\Barys\Task3_1\query07.sql" />
-    <Content Include="Tasks\Barys\Task3_1\query08.sql" />
-    <Content Include="Tasks\Barys\Task3_1\query09.sql" />
-    <Content Include="Tasks\Viachaslau\Task3_1\query01.sql" />
-    <Content Include="Tasks\Viachaslau\Task3_1\query02.sql" />
-    <Content Include="Tasks\Viachaslau\Task3_1\query03.sql" />
-    <Content Include="Tasks\Viachaslau\Task3_1\query04.sql" />
-    <Content Include="Tasks\Viachaslau\Task3_1\query05.sql" />
-    <Content Include="Tasks\Viachaslau\Task3_1\query06.sql" />
-    <Content Include="Tasks\Viachaslau\Task3_1\query07.sql" />
-    <Content Include="Tasks\Viachaslau\Task3_1\query08.sql" />
-    <Content Include="Tasks\Viachaslau\Task3_1\query09.sql" />
     <Content Include="Tasks\_Origin\Task1\query01.sql" />
     <Content Include="Tasks\_Origin\Task1\query02.sql" />
     <Content Include="Tasks\_Origin\Task1\query03.sql" />
@@ -286,6 +268,15 @@
     <Content Include="Tasks\Viachaslau\Task2\query07.sql" />
     <Content Include="Tasks\Viachaslau\Task2\query08.sql" />
     <Content Include="Tasks\Viachaslau\Task2\query09.sql" />
+    <Content Include="Tasks\Viachaslau\Task3_1\query01.sql" />
+    <Content Include="Tasks\Viachaslau\Task3_1\query02.sql" />
+    <Content Include="Tasks\Viachaslau\Task3_1\query03.sql" />
+    <Content Include="Tasks\Viachaslau\Task3_1\query04.sql" />
+    <Content Include="Tasks\Viachaslau\Task3_1\query05.sql" />
+    <Content Include="Tasks\Viachaslau\Task3_1\query06.sql" />
+    <Content Include="Tasks\Viachaslau\Task3_1\query07.sql" />
+    <Content Include="Tasks\Viachaslau\Task3_1\query08.sql" />
+    <Content Include="Tasks\Viachaslau\Task3_1\query09.sql" />
     <Content Include="Tasks\Viachaslau\Task3\query01.sql" />
     <Content Include="Tasks\Viachaslau\Task3\query02.sql" />
     <Content Include="Tasks\Viachaslau\Task3\query03.sql" />

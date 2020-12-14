@@ -38,4 +38,5 @@ FROM tab_all
 INNER JOIN tab_year
 		ON tab_all.Name = tab_year.Name
 WHERE tab_year.YEAR = 2014
+ORDER BY CategoryPercentage DESC
 ;

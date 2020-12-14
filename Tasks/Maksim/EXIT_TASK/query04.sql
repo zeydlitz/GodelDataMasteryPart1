@@ -1,42 +1,16 @@
 --Query  4
-WITH tab_all
-as(
-	SELECT DISTINCT
-		   PC.Name,
-		   SUM(SOD.LineTotal) CategoryTotal
-	FROM Sales.SalesOrderHeader SOH
-	INNER JOIN Sales.SalesOrderDetail SOD
-			ON SOH.SalesOrderID = SOD.SalesOrderID
-	INNER JOIN Production.Product product
-			ON  SOD.ProductID = product.ProductID
-	INNER JOIN Production.ProductSubcategory PS
-			On product.ProductSubcategoryID = PS.ProductSubcategoryID
-	INNER JOIN Production.ProductCategory PC
-			ON PS.ProductCategoryID = PC.ProductCategoryID
-	GROUP BY   PC.Name
-	),
-tab_year as(
-		SELECT DISTINCT
-		   PC.Name,
-		   SUM(SOD.LineTotal) OverYear,
-		   YEAR(SOH.OrderDate) YEAR
-	FROM Sales.SalesOrderHeader SOH
-	INNER JOIN Sales.SalesOrderDetail SOD
-			ON SOH.SalesOrderID = SOD.SalesOrderID
-	INNER JOIN Production.Product product
-			ON  SOD.ProductID = product.ProductID
-	INNER JOIN Production.ProductSubcategory PS
-			On product.ProductSubcategoryID = PS.ProductSubcategoryID
-	INNER JOIN Production.ProductCategory PC
-			ON PS.ProductCategoryID = PC.ProductCategoryID
-	GROUP BY   PC.Name, YEAR(SOH.OrderDate))
-SELECT tab_all.Name,
-	   tab_all.CategoryTotal,
-	   tab_year.OverYear,
-	   (tab_year.OverYear * 100) / tab_all.CategoryTotal  AS CategoryPercentage
-FROM tab_all
-INNER JOIN tab_year
-		ON tab_all.Name = tab_year.Name
-WHERE tab_year.YEAR = 2014
-ORDER BY CategoryPercentage DESC
+SELECT DISTINCT PC.Name,
+       SUM(SOD.LineTotal) OVER (PARTITION BY PC.Name) CategoryTotal,
+       SUM(SOD.LineTotal) OVER () AS OverallTotal,
+       (SUM(product.ListPrice) OVER (PARTITION BY PC.Name) * 100) / SUM(product.ListPrice) OVER ()  CategoryPercentage
+FROM Production.ProductCategory PC
+INNER JOIN Production.ProductSubcategory PS
+       ON PC.ProductCategoryID = PS.ProductCategoryID
+INNER JOIN Production.Product product
+       ON product.ProductSubcategoryID = PS.ProductSubcategoryID
+INNER JOIN Sales.SalesOrderDetail AS SOD
+       ON SOD.ProductID = product.ProductID
+INNER JOIN Sales.SalesOrderHeader AS SOH
+       ON SOH.SalesOrderID = SOD.SalesOrderID
+WHERE SOH.OrderDate BETWEEN  CONVERT(DATETIME, '2014-06-01', 101)  AND  CONVERT(DATETIME, '2014-12-31', 101)
 ;
